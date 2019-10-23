@@ -922,7 +922,7 @@ void ParticleSystem::update(float dt)
                     _particleData.atlasIndex[_particleCount - 1] = currentIndex;
                 }
                 --_particleCount;
-                if ((_particleCount == 0 && _isAutoRemoveOnFinish && _duration != std::chrono::milliseconds::max()) ||
+                if ((_particleCount == 0 && _isAutoRemoveOnFinish && _duration != std::chrono::milliseconds::max() && _elapsed>_duration) ||
                     (_particleCount == 0 && _isAutoRemoveOnFinish && _duration == std::chrono::milliseconds::max() && !_isActive))
                 {
                     this->unscheduleUpdate();
